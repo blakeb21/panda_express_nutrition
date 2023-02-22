@@ -37,8 +37,8 @@ const Home: NextPage = () => {
       <Header buttonClick={resetArray}/>
       <main className="flex flex-col relative overflow-auto bg-gradient-to-b from-[#2e026d] to-[#15162c]">
 
-        {/* <p className="text-white text-center pt-4 md:pt-6">Click on the &quot;+&quot; to add an item to your list. List and total macros found at bottom of page.</p>
-        <p className="text-white text-center pb-4 md:pb-6">You can reset the selected items but click on the &quot;Reset Selected&quot; button in the header.</p> */}
+        <p className="text-white text-center pt-4 md:pt-6">Click on the &quot;+&quot; to add an item to your list. List and total macros found at bottom of page.</p>
+        <p className="text-white text-center pb-4 md:pb-6">You can reset the selected items but click on the &quot;Reset Selected&quot; button in the header.</p>
 
         <Table inputArray={sides} setItems={setSelectedItems} setToast={setToast} headerText="Sides"/>
         <Table inputArray={chicken} setItems={setSelectedItems} setToast={setToast} headerText="Chicken"/>
