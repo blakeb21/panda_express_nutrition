@@ -34,7 +34,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/panda_logo_vector.svg" />
       </Head>
       <Header buttonClick={resetArray}/>
-      <main className="flex min-h-screen flex-col bg-gradient-to-b from-[#2e026d] to-[#15162c]">
+      <main className="flex flex-col overflow-scroll bg-gradient-to-b from-[#2e026d] to-[#15162c]">
 
         <p className="text-white text-center pt-4 md:pt-6">Click on the &quot;+&quot; to add an item to your list. List and total macros found at bottom of page.</p>
         <p className="text-white text-center pb-4 md:pb-6">You can reset the selected items but click on the &quot;Reset Selected&quot; button in the header.</p>
