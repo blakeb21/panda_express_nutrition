@@ -48,7 +48,7 @@ const ResultTable:FC<TableProps> = ({inputArray, setItems,}) => {
                         Fat
                     </th>
                     <th scope="col" className="px-6 py-3">
-                        Add Item
+                        Remove Item
                     </th>
                 </tr>
             </thead>
