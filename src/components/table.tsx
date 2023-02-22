@@ -19,7 +19,7 @@ const Table:FC<TableProps> = ({inputArray, setItems, setToast, headerText}) => {
 
   return (
     <>
-    <div className="flex flex-col relative mx-auto min-w-[50%] relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div className="flex flex-col relative mx-auto md:min-w-[50%] relative overflow-x-auto shadow-md sm:rounded-lg">
         <h1 className='text-white text-2xl p-4 md:p-6'>{headerText}</h1>
         <table className="w-full text-sm text-left text-gray-500">
             <thead className="text-xs text-gray-700 uppercase bg-purple-200 border-b">

@@ -27,7 +27,7 @@ const ResultTable:FC<TableProps> = ({inputArray, setItems,}) => {
 
   return (
     <>
-    <div className="flex flex-col relative mx-auto min-w-[50%] overflow-x-auto shadow-md sm:rounded-lg pb-4">
+    <div className="flex flex-col mx-auto md:min-w-[50%] overflow-x-auto shadow-md sm:rounded-lg pb-4">
         <h1 className='text-white text-2xl p-4 md:p-6 pt-6 md:pt-20'>Selected Items</h1>
         <table className="w-full text-sm text-left text-gray-500">
             <thead className="text-xs text-gray-700 uppercase bg-purple-200 border-b">
