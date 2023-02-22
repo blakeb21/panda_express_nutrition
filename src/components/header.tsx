@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { type FC, type MouseEventHandler } from "react"
+import Image from "next/image"
 
 export interface HeaderProps {
     buttonClick: MouseEventHandler<HTMLButtonElement>
@@ -7,12 +8,15 @@ export interface HeaderProps {
 
 const Header: FC<HeaderProps> = ({buttonClick}: HeaderProps) => {
 
+    const img = "../../panda_logo_vector.svg"
+
     return (
         <>
         <header>
             <nav className="bg-black border-gray-200 px-4 lg:px-6 py-2.5">
                 <div className="flex flex-wrap justify-between items-center text-center mx-auto max-w-screen-xl">
                     <Link href="/" className="flex items-center">
+                        <Image className="rounded-full" alt="The panda express logo" src={img} height={48} width={48}  />
                         <span className="self-center text-xl font-semibold whitespace-nowrap text-white pl-2">Panda Express Nutrition Calculator</span>
                     </Link>
                     

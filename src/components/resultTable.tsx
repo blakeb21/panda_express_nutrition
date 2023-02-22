@@ -7,10 +7,10 @@ export interface TableProps {
 }
 
 const ResultTable:FC<TableProps> = ({inputArray, setItems,}) => {
-    function buttonClicked(item: FoodEntry) {
+    function buttonClicked(item: number) {
         setItems(prevActions => (
             // Filter out the item with the matching index
-            prevActions.filter((value) => value !== item)
+            prevActions.filter((value, idx) => idx !== item)
           ))
         return undefined
     }
@@ -53,8 +53,8 @@ const ResultTable:FC<TableProps> = ({inputArray, setItems,}) => {
                 </tr>
             </thead>
             <tbody>
-                {inputArray.map((item) => (
-                    <tr key={"tr-" + item.name} className="bg-white even:bg-purple-50 border-b">
+                {inputArray.map((item, idx) => (
+                    <tr key={idx} className="bg-white even:bg-purple-50 border-b">
                         <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                             {item.name}
                         </th>
@@ -71,7 +71,7 @@ const ResultTable:FC<TableProps> = ({inputArray, setItems,}) => {
                             {item.fat}
                         </td>
                         <td className="px-6 py-4">
-                            <button onClick={() => buttonClicked(item)} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                            <button onClick={() => buttonClicked(idx)} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                                 <svg aria-hidden="true" className="w-8 h-8 rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
                                 <span className="sr-only">Remove from Selected</span>
                             </button>
