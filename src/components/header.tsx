@@ -17,7 +17,8 @@ const Header: FC<HeaderProps> = ({buttonClick}: HeaderProps) => {
                 <div className="flex flex-wrap justify-between items-center text-center mx-auto max-w-screen-xl">
                     <Link href="/" className="flex items-center">
                         <Image className="rounded-full" alt="The panda express logo" src={img} height={48} width={48}  />
-                        <span className="self-center text-xl font-semibold whitespace-nowrap text-white pl-2">Panda Express Nutrition Calculator</span>
+                        <span className="flex md:hidden self-center text-xl font-semibold whitespace-nowrap text-white pl-2">Nutrition Calculator</span>
+                        <span className="hidden md:flex self-center text-xl font-semibold whitespace-nowrap text-white pl-2">Panda Express Nutrition Calculator</span>
                     </Link>
                     
                     <div className="justify-between items-end w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
