@@ -22,7 +22,7 @@ const Table:FC<TableProps> = ({inputArray, setItems, setToast, headerText}) => {
     <div className="flex flex-col relative mx-auto md:min-w-[50%] relative overflow-x-auto shadow-md sm:rounded-lg">
         <h1 className='text-white text-2xl p-4 md:p-6'>{headerText}</h1>
         <table className="w-full text-sm text-left text-gray-500">
-            <thead className="text-xs text-gray-700 uppercase bg-purple-200 border-b">
+            <thead className="text-xs text-black uppercase bg-red-200 border-b">
                 <tr>
                     <th scope="col" className="px-6 py-3">
                         Dish
@@ -46,8 +46,8 @@ const Table:FC<TableProps> = ({inputArray, setItems, setToast, headerText}) => {
             </thead>
             <tbody>
                 {inputArray.map((item) => (
-                    <tr key={"tr-" + item.name} className="bg-white even:bg-purple-50 border-b">
-                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                    <tr key={"tr-" + item.name} className="bg-white text-black font-medium even:bg-red-50 border-b">
+                        <th scope="row" className="px-6 py-4 whitespace-nowrap">
                             {item.name}
                         </th>
                         <td className="px-6 py-4">
@@ -63,7 +63,7 @@ const Table:FC<TableProps> = ({inputArray, setItems, setToast, headerText}) => {
                             {item.fat}
                         </td>
                         <td className="px-6 py-4">
-                            <button onClick={() => buttonClicked(item)} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                            <button onClick={() => buttonClicked(item)} className="font-medium text-green-600 hover:underline">
                                 <svg aria-hidden="true" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
                                 <span className="sr-only">Add to Selected</span>
                             </button>

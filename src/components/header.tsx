@@ -21,7 +21,7 @@ const Header: FC<HeaderProps> = ({buttonClick}: HeaderProps) => {
                     </Link>
                     
                     <div className="justify-between items-end w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
-                        <button className="text-white" onClick={buttonClick}>Reset Selected</button>
+                        <button className="text-white p-4 pt-2 bg-red-700 rounded" onClick={buttonClick}>Reset Selected</button>
                     </div>
                 </div>
             </nav>

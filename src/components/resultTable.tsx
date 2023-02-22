@@ -30,7 +30,7 @@ const ResultTable:FC<TableProps> = ({inputArray, setItems,}) => {
     <div className="flex flex-col mx-auto md:min-w-[50%] overflow-x-auto shadow-md sm:rounded-lg pb-4">
         <h1 className='text-white text-2xl p-4 md:p-6 pt-6 md:pt-20'>Selected Items</h1>
         <table className="w-full text-sm text-left text-gray-500">
-            <thead className="text-xs text-gray-700 uppercase bg-purple-200 border-b">
+            <thead className="text-xs text-black uppercase bg-red-200 border-b">
                 <tr>
                     <th scope="col" className="px-6 py-3">
                         Dish
@@ -54,8 +54,8 @@ const ResultTable:FC<TableProps> = ({inputArray, setItems,}) => {
             </thead>
             <tbody>
                 {inputArray.map((item, idx) => (
-                    <tr key={idx} className="bg-white even:bg-purple-50 border-b">
-                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                    <tr key={idx} className="bg-white even:bg-red-50 font-medium text-black border-b">
+                        <th scope="row" className="px-6 py-4 whitespace-nowrap">
                             {item.name}
                         </th>
                         <td className="px-6 py-4">
@@ -71,14 +71,14 @@ const ResultTable:FC<TableProps> = ({inputArray, setItems,}) => {
                             {item.fat}
                         </td>
                         <td className="px-6 py-4">
-                            <button onClick={() => buttonClicked(idx)} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                            <button onClick={() => buttonClicked(idx)} className="font-medium text-red-700 hover:underline">
                                 <svg aria-hidden="true" className="w-8 h-8 rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
                                 <span className="sr-only">Remove from Selected</span>
                             </button>
                         </td>
                     </tr>
                 ))}
-                <tr key={"tr-" + results.name} className="bg-purple-200 text-black font-medium border-b">
+                <tr key={"tr-" + results.name} className="bg-red-200 text-black font-medium border-b">
                         <th scope="row" className="px-6 py-4 whitespace-nowrap">
                             {results.name}
                         </th>
