@@ -1,5 +1,5 @@
-import { type Dispatch, type SetStateAction, type FC, useState } from 'react'
-import { type FoodEntry } from '~/pages/data'
+import { type Dispatch, type SetStateAction, type FC } from 'react'
+import { type FoodEntry } from '~/data/data'
 
 export interface TableProps {
     inputArray: FoodEntry[],

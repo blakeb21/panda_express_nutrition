@@ -1,26 +1,17 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 import Header from "~/components/header";
 import ResultTable from "~/components/resultTable";
 import Table from "~/components/table";
 import Toast from "~/components/toast";
 
-import { type FoodEntry, sides, chicken, chickenBreast, beef, seafood, appetizers } from "./data";
+import { type FoodEntry, sides, chicken, chickenBreast, beef, seafood, appetizers } from "../data/data";
 
 const Home: NextPage = () => {
   const [selectedItems, setSelectedItems] = useState<FoodEntry[]>([])
   const [showToast, setShowToast] = useState(false)
   const [toastText, setToastText] = useState('')
-
-  function addItem(item: FoodEntry) {
-    setSelectedItems(prevItems => {
-      return [
-        ...prevItems,
-        item
-      ]
-    })
-  }
 
   function resetArray() {
     setSelectedItems([])
@@ -44,7 +35,7 @@ const Home: NextPage = () => {
       </Head>
       <Header buttonClick={resetArray}/>
       <main className="flex min-h-screen flex-col bg-gradient-to-b from-[#2e026d] to-[#15162c]">
-        
+
         <p className="text-white text-center pt-4 md:pt-6">Click on the &quot;+&quot; to add an item to your list. List and total macros found at bottom of page.</p>
         <p className="text-white text-center pb-4 md:pb-6">You can reset the selected items but click on the &quot;Reset Selected&quot; button in the header.</p>
 
