@@ -43,8 +43,9 @@ const Home: NextPage = () => {
         <meta property="og:title"              content="Panda Express Nutrition Calculator" />
         <meta property="og:description"        content="A quick and easy way to calculate Panda Express nutrition information and macros" />
 
-        <meta name="twitter:card"                   content="summary" />
-        <meta name="twitter:creator"                content="@BlakeTomasz" />
+        <meta name="twitter:card"               content="summary" />
+        <meta name="twitter:creator"            content="@BlakeTomasz" />
+        <meta name="twitter:site"               content="@BlakeTomasz" />
         <meta name="twitter:image"              content="https://panda-express-nutrition.vercel.app/panda_logo_vector.png" />
         <meta name="twitter:image:width"        content="1080" />
         <meta name="twitter:image:height"       content="1080" />
