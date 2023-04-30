@@ -35,7 +35,7 @@ const Home: NextPage = () => {
         <meta name="description" content="A quick and easy way to calculate Panda Express macros" />
         <link rel="icon" href="/panda_logo_vector.svg" />
 
-        <meta property="og:image"              content="http://panda-express-nutrition.vercel.app/panda_logo_vector.png" />
+        <meta property="og:image"              content="https://panda-express-nutrition.vercel.app/panda_logo_vector.png" />
         <meta property="og:image:width"        content="1080" />
         <meta property="og:image:height"       content="1080" />
         <meta property="og:url"                content="https://panda-express-nutrition.vercel.app" />
