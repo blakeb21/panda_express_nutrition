@@ -40,7 +40,9 @@ const Home: NextPage = () => {
         <meta property="og:title"              content="Panda Express Nutrition Calculator" />
         <meta property="og:description"        content="A quick and easy way to calculate Panda Express macros" />
         <meta property="og:image"              content="http://panda-express-nutrition.vercel.app/panda_logo_vector.png" />
-        
+        <meta property="og:image:width"        content="1080" />
+        <meta property="og:image:height"       content="1080" />
+
       </Head>
       <Header buttonClick={resetArray}/>
       <main className="flex flex-col relative overflow-auto bg-gradient-to-r from-[#9d0208] to-[#370617]">
