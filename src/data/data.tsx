@@ -15,6 +15,15 @@ export const sides: FoodEntry[] = [
     {name: "Chow Fun", calories: 410, protein: 9, carbs: 73, fat: 9},
 ]
 
+export const halfSides: FoodEntry[] = [
+    {name: "Chow Mein", calories: 510/2, protein: 13/2, carbs: 80/2, fat: 20/2},
+    {name: "Fried Rice", calories: 520/2, protein: 11/2, carbs: 85/2, fat: 16/2},
+    {name: "Brown Steamed Rice", calories: 420/2, protein: 9/2, carbs: 86/2, fat: 4/2},
+    {name: "White Steamed Rice", calories: 380/2, protein: 7/2, carbs: 87/2, fat: 0},
+    {name: "Super Greens", calories: 90/2, protein: 6/2, carbs: 10/2, fat: 3/2},
+    {name: "Chow Fun", calories: 410/2, protein: 9/2, carbs: 73/2, fat: 9/2},
+]
+
 export const chicken: FoodEntry[] = [
     {name: "Black Pepper Chicken", calories: 280, protein: 13, carbs: 15, fat: 19},
     {name: "Kung Pao Chicken", calories: 290, protein: 16, carbs: 14, fat: 19},
