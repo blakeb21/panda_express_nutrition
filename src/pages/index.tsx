@@ -42,6 +42,9 @@ const Home: NextPage = () => {
         <meta property="og:type"               content="website" />
         <meta property="og:title"              content="Panda Express Nutrition Calculator" />
         <meta property="og:description"        content="A quick and easy way to calculate Panda Express macros" />
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:creator" content="@BlakeTomasz" />
         
       </Head>
       <Header buttonClick={resetArray}/>
