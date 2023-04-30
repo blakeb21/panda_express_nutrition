@@ -60,5 +60,5 @@ export const appetizers: FoodEntry[] = [
     {name: "Chicken Egg Roll (1 Roll)", calories: 200, protein: 6, carbs: 20, fat: 10},
     {name: "Chicken Potstickers (3 Pcs)", calories: 160, protein: 6, carbs: 20, fat: 6},
     {name: "Cream Cheese Rangoon (3 Pcs)", calories: 190, protein: 5, carbs: 24, fat: 8},
-    {name: "Begetable Spring Roll (2 Rolls)", calories: 240, protein: 4, carbs: 24, fat: 14},
+    {name: "Vegetable Spring Roll (2 Rolls)", calories: 240, protein: 4, carbs: 24, fat: 14},
 ]

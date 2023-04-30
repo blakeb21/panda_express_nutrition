@@ -7,10 +7,11 @@ import ResultTable from "~/components/resultTable";
 import Table from "~/components/table";
 import Toast from "~/components/toast";
 
-import { type FoodEntry, sides, chicken, chickenBreast, beef, seafood, appetizers } from "../data/data";
+import { type FoodEntry, halfSides, sides, chicken, chickenBreast, beef, seafood, appetizers } from "../data/data";
 
 const Home: NextPage = () => {
   const [selectedItems, setSelectedItems] = useState<FoodEntry[]>([])
+  const [halfSidesBool, setHalfSides] = useState<boolean>(false)
   const [showToast, setShowToast] = useState(false)
   const [toastText, setToastText] = useState('')
 
@@ -39,8 +40,23 @@ const Home: NextPage = () => {
 
         <p className="text-white text-center pt-4 md:pt-6">Click on the &quot;+&quot; to add an item to your list. List and total macros found at bottom of page.</p>
         <p className="text-white text-center pb-4 md:pb-6">You can reset the selected items but click on the &quot;Reset Selected&quot; button in the header.</p>
+        
 
-        <Table inputArray={sides} setItems={setSelectedItems} setToast={setToast} headerText="Sides"/>
+        {/* <div className="flex-row flex" style={{"maxWidth": "65ch"}}>
+          <span className="mr-3 text-sm font-medium text-gray-900 dark:text-gray-300">Full Sides</span>
+          <label className="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" value={halfSidesBool} onClick={() => setHalfSides(!halfSidesBool)} className="sr-only peer" />
+            <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+            <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Half Sides</span>
+          </label>
+        </div> */}
+        
+
+        {halfSidesBool === false ? (
+          <Table inputArray={sides} setItems={setSelectedItems} setToast={setToast} headerText="Sides"/>
+        ) : (
+          <Table inputArray={halfSides} setItems={setSelectedItems} setToast={setToast} headerText="Sides"/>
+        )}
         <Table inputArray={chicken} setItems={setSelectedItems} setToast={setToast} headerText="Chicken"/>
         <Table inputArray={chickenBreast} setItems={setSelectedItems} setToast={setToast} headerText="Chicken Breast"/>
         <Table inputArray={beef} setItems={setSelectedItems} setToast={setToast} headerText="Beef"/>
@@ -53,6 +69,8 @@ const Home: NextPage = () => {
         <div className='fixed left-[50%] translate-x-[-50%] bottom-[20px]'>
           <Toast itemName={toastText} setShowToast={setShowToast} />
         </div>}
+
+        <p className="text-white text-center pt-4 md:pt-6">All information from Panda Express at <a className="text-yellow-500" href="https://www.pandaexpress.com/nutritioninformation">https://www.pandaexpress.com/nutritioninformation</a></p>
       </main>
       <Footer />
     </>
