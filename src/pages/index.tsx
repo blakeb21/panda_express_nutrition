@@ -45,13 +45,13 @@ const Home: NextPage = () => {
 
         <meta name="twitter:card"                   content="summary" />
         <meta name="twitter:creator"                content="@BlakeTomasz" />
-        <meta property="twitter:image"              content="https://panda-express-nutrition.vercel.app/panda_logo_vector.png" />
-        <meta property="twitter:image:width"        content="1080" />
-        <meta property="twitter:image:height"       content="1080" />
-        <meta property="twitter:url"                content="https://panda-express-nutrition.vercel.app" />
-        <meta property="twitter:type"               content="website" />
-        <meta property="twitter:title"              content="Panda Express Nutrition Calculator" />
-        <meta property="twitter:description"        content="A quick and easy way to calculate Panda Express nutrition information and macros" />
+        <meta name="twitter:image"              content="https://panda-express-nutrition.vercel.app/panda_logo_vector.png" />
+        <meta name="twitter:image:width"        content="1080" />
+        <meta name="twitter:image:height"       content="1080" />
+        <meta name="twitter:url"                content="https://panda-express-nutrition.vercel.app" />
+        <meta name="twitter:type"               content="website" />
+        <meta name="twitter:title"              content="Panda Express Nutrition Calculator" />
+        <meta name="twitter:description"        content="A quick and easy way to calculate Panda Express nutrition information and macros" />
         
       </Head>
       <Header buttonClick={resetArray}/>
