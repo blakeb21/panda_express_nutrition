@@ -5,7 +5,10 @@ import "~/styles/globals.css";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
-    <><Component {...pageProps} /><Analytics /></>
+    <>
+      <Component {...pageProps} />
+      <Analytics />
+    </>
   );
 };
 
