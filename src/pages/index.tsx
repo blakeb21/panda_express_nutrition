@@ -175,7 +175,7 @@ const Home: NextPage = () => {
             className="text-yellow-500"
             href="https://www.pandaexpress.com/nutritioninformation"
           >
-            https://www.pandaexpress.com/nutritioninformation
+            www.pandaexpress.com
           </a>
         </p>
         <div className="fixed right-4 bottom-4 sm:right-6 sm:bottom-6">
