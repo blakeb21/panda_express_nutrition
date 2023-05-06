@@ -92,16 +92,16 @@ const Home: NextPage = () => {
         />
       </Head>
       <Header buttonClick={resetArray} />
-      <main className="relative flex flex-col overflow-auto bg-gradient-to-r from-[#9d0208] to-[#370617]">
+      <main className="relative flex flex-col bg-gradient-to-r from-[#9d0208] to-[#370617]">
         <h1 className="py-4 text-center text-xl font-bold text-white underline">
           Panda Express Nutrition Info
         </h1>
 
-        <p className="pt-4 text-center text-white md:pt-6">
+        <p className="pt-4 px-2 text-center text-white md:pt-6">
           Click on the &quot;+&quot; to add an item to your list. List and total
           panda express macros found at bottom of page.
         </p>
-        <p className="pb-4 text-center text-white md:pb-6">
+        <p className="pb-4 px-2 text-center text-white md:pb-6">
           You can reset the selected items but click on the &quot;Reset
           Selected&quot; button in the header.
         </p>
