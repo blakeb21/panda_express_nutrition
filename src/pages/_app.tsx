@@ -1,6 +1,6 @@
 import { type AppType } from "next/dist/shared/lib/utils";
 import { Analytics } from '@vercel/analytics/react'
-import {Script} from 'next/script'
+import Script from 'next/script'
 
 import "~/styles/globals.css";
 import { useRouter } from "next/router";
