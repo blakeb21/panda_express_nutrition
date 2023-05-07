@@ -11,7 +11,8 @@ const MyApp: AppType = ({ Component, pageProps }) => {
 
   const router = useRouter()
   useEffect(() => {
-    const handleRouteChange = url => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const handleRouteChange = (url: any) => {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
       gtag.pageview(url)
     }
