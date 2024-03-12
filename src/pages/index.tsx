@@ -93,6 +93,10 @@ const Home: NextPage = () => {
           name="twitter:description"
           content="A quick and easy way to calculate Panda Express nutrition information and macros"
         />
+        <meta
+          name="google-site-verification"
+          content="q89S_Dej4noVDW2XJtcU6BMcK9_sc-d2ohAKLLmawss"
+        />
       </Head>
       <Header buttonClick={resetArray} />
       <main className="relative flex flex-col bg-gradient-to-r from-[#9d0208] to-[#370617]">
