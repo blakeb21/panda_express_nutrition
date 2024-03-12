@@ -189,7 +189,7 @@ const Home: NextPage = () => {
           <a href="#results">
             <button
               className="button hover:bg-800 h-14 w-14 rounded-full bg-gray-400 text-white"
-              onClick={() => void plausible("jumpToBottow")}
+              onClick={() => void plausible("jumpToBottom")}
             >
               <Image
                 src="down-arrow-svgrepo-com.svg"
