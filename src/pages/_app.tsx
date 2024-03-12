@@ -1,33 +1,33 @@
 import { type AppType } from "next/dist/shared/lib/utils";
-import { Analytics } from '@vercel/analytics/react'
-import Script from 'next/script'
+import Script from "next/script";
 
 import "~/styles/globals.css";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import * as gtag from "../lib/gtag"
+import * as gtag from "../lib/gtag";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
-
-  const router = useRouter()
+  const router = useRouter();
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleRouteChange = (url: any) => {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-      gtag.pageview(url)
-    }
-    router.events.on("routeChangeComplete", handleRouteChange)
+      gtag.pageview(url);
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
     return () => {
-      router.events.off("routeChangeComplete", handleRouteChange)
-    }
-  }, [router.events])
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
 
   return (
     <>
-    {/* Global Site Tag (gtag.js) - Google Analytics */}
-    <Script
+      {/* Global Site Tag (gtag.js) - Google Analytics */}
+      <Script
         strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID as string}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${
+          process.env.NEXT_PUBLIC_GA_ID as string
+        }`}
       />
       <Script
         id="gtag-init"
@@ -43,8 +43,12 @@ const MyApp: AppType = ({ Component, pageProps }) => {
           `,
         }}
       />
+      <Script
+        defer
+        data-domain="panda-express-nutrition.vercel.app"
+        src="https://plausible.io/js/script.js"
+      />
       <Component {...pageProps} />
-      <Analytics />
     </>
   );
 };
