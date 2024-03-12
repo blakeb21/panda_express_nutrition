@@ -5,6 +5,7 @@ import "~/styles/globals.css";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import * as gtag from "../lib/gtag";
+import PlausibleProvider from "next-plausible";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   const router = useRouter();
@@ -43,12 +44,9 @@ const MyApp: AppType = ({ Component, pageProps }) => {
           `,
         }}
       />
-      <Script
-        defer
-        data-domain="panda-express-nutrition.vercel.app"
-        src="https://plausible.io/js/script.js"
-      />
-      <Component {...pageProps} />
+      <PlausibleProvider domain="panda-express-nutrition.vercel.app">
+        <Component {...pageProps} />
+      </PlausibleProvider>
     </>
   );
 };
