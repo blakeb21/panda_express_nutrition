@@ -18,12 +18,15 @@ import {
   seafood,
   appetizers,
 } from "../data/data";
+import { usePlausible } from "next-plausible";
 
 const Home: NextPage = () => {
   const [selectedItems, setSelectedItems] = useState<FoodEntry[]>([]);
   const [halfSidesBool, setHalfSides] = useState<boolean>(false);
   const [showToast, setShowToast] = useState(false);
   const [toastText, setToastText] = useState("");
+
+  const plausible = usePlausible();
 
   function resetArray() {
     setSelectedItems([]);
@@ -97,11 +100,11 @@ const Home: NextPage = () => {
           Panda Express Nutrition Info
         </h1>
 
-        <p className="pt-4 px-2 text-center text-white md:pt-6">
+        <p className="px-2 pt-4 text-center text-white md:pt-6">
           Click on the &quot;+&quot; to add an item to your list. List and total
           panda express macros found at bottom of page.
         </p>
-        <p className="pb-4 px-2 text-center text-white md:pb-6">
+        <p className="px-2 pb-4 text-center text-white md:pb-6">
           You can reset the selected items but click on the &quot;Reset
           Selected&quot; button in the header.
         </p>
@@ -180,7 +183,10 @@ const Home: NextPage = () => {
         </p>
         <div className="fixed right-4 bottom-4 sm:right-6 sm:bottom-6">
           <a href="#results">
-            <button className="button hover:bg-800 h-14 w-14 rounded-full bg-gray-400 text-white ">
+            <button
+              className="button hover:bg-800 h-14 w-14 rounded-full bg-gray-400 text-white"
+              onClick={() => void plausible("jumpToBottow")}
+            >
               <Image
                 src="down-arrow-svgrepo-com.svg"
                 width={14}
