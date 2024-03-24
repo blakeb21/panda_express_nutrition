@@ -44,7 +44,10 @@ const MyApp: AppType = ({ Component, pageProps }) => {
           `,
         }}
       />
-      <PlausibleProvider domain="panda-express-nutrition.vercel.app">
+      <PlausibleProvider
+        domain="panda-express-nutrition.vercel.app"
+        trackOutboundLinks
+      >
         <Component {...pageProps} />
       </PlausibleProvider>
     </>
