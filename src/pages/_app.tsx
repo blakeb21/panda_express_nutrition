@@ -1,11 +1,24 @@
 import { type AppType } from "next/dist/shared/lib/utils";
 import Script from "next/script";
-
 import "~/styles/globals.css";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import * as gtag from "../lib/gtag";
 import PlausibleProvider from "next-plausible";
+import posthog from "posthog-js";
+import { PostHogProvider } from "posthog-js/react";
+
+if (typeof window !== "undefined" && process.env.NEXT_PUBLIC_POSTHOG_KEY) {
+  // checks that we are client-side
+  posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
+    api_host:
+      process.env.NEXT_PUBLIC_POSTHOG_HOST || "https://us.i.posthog.com",
+    person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
+    loaded: (posthog) => {
+      if (process.env.NODE_ENV === "development") posthog.debug(); // debug mode in development
+    },
+  });
+}
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   const router = useRouter();
@@ -48,7 +61,9 @@ const MyApp: AppType = ({ Component, pageProps }) => {
         domain="panda-express-nutrition.vercel.app"
         trackOutboundLinks
       >
-        <Component {...pageProps} />
+        <PostHogProvider client={posthog}>
+          <Component {...pageProps} />
+        </PostHogProvider>
       </PlausibleProvider>
     </>
   );

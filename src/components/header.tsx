@@ -2,6 +2,7 @@ import Link from "next/link";
 import { type FC, type MouseEventHandler } from "react";
 import Image from "next/image";
 import { usePlausible } from "next-plausible";
+import { usePostHog } from "posthog-js/react";
 
 export interface HeaderProps {
   buttonClick: MouseEventHandler<HTMLButtonElement>;
@@ -10,6 +11,7 @@ export interface HeaderProps {
 const Header: FC<HeaderProps> = ({ buttonClick }: HeaderProps) => {
   const img = "../../panda_logo_vector.svg";
   const plausible = usePlausible();
+  const posthog = usePostHog();
 
   return (
     <>
@@ -40,6 +42,7 @@ const Header: FC<HeaderProps> = ({ buttonClick }: HeaderProps) => {
                 className="rounded bg-red-700 p-4 pt-2 text-white"
                 onClick={(e) => {
                   plausible("resetButtonClicked");
+                  posthog.capture("reset_button_clicked");
                   buttonClick(e);
                 }}
               >
