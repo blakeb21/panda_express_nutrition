@@ -4,7 +4,6 @@ import "~/styles/globals.css";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import * as gtag from "../lib/gtag";
-import PlausibleProvider from "next-plausible";
 import posthog from "posthog-js";
 import { PostHogProvider } from "posthog-js/react";
 
@@ -57,14 +56,9 @@ const MyApp: AppType = ({ Component, pageProps }) => {
           `,
         }}
       />
-      <PlausibleProvider
-        domain="panda-express-nutrition.vercel.app"
-        trackOutboundLinks
-      >
-        <PostHogProvider client={posthog}>
-          <Component {...pageProps} />
-        </PostHogProvider>
-      </PlausibleProvider>
+      <PostHogProvider client={posthog}>
+        <Component {...pageProps} />
+      </PostHogProvider>
     </>
   );
 };

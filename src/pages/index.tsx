@@ -18,7 +18,6 @@ import {
   seafood,
   appetizers,
 } from "../data/data";
-import { usePlausible } from "next-plausible";
 import { usePostHog } from "posthog-js/react";
 
 const Home: NextPage = () => {
@@ -28,7 +27,6 @@ const Home: NextPage = () => {
   const [toastText, setToastText] = useState("");
 
   const posthog = usePostHog();
-  const plausible = usePlausible();
 
   function resetArray() {
     setSelectedItems([]);
@@ -192,7 +190,6 @@ const Home: NextPage = () => {
             <button
               className="button hover:bg-800 h-14 w-14 rounded-full bg-gray-400 text-white"
               onClick={() => {
-                void plausible("jumpToBottom");
                 posthog.capture("jump_to_bottom");
               }}
             >
