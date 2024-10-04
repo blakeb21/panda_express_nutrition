@@ -8,12 +8,12 @@
 
 // /** @type {import("next").NextConfig} */
 // const config = {
-const { withPlausibleProxy } = require("next-plausible");
+
 // const withBundleAnalyzer = require("@next/bundle-analyzer")({
 //   enabled: process.env.ANALYZE === "true",
 // });
 // module.exports = withBundleAnalyzer({
-module.exports = withPlausibleProxy()({
+module.exports = {
   reactStrictMode: true,
 
   /**
@@ -26,5 +26,5 @@ module.exports = withPlausibleProxy()({
     locales: ["en"],
     defaultLocale: "en",
   },
-});
+};
 // export default config;
