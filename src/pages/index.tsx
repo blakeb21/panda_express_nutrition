@@ -168,7 +168,10 @@ const Home: NextPage = () => {
           </div>
         )}
 
-        <p className="py-4 text-center text-white md:py-6">
+        <p className="pt-4 text-center text-white md:pt-6">
+          *Not an official Panda Express website.
+        </p>
+        <p className="pb-4 text-center text-white md:pb-6">
           All information from Panda Express at{" "}
           <a
             className="text-yellow-500"
@@ -177,6 +180,7 @@ const Home: NextPage = () => {
             www.pandaexpress.com
           </a>
         </p>
+
         <div className="fixed right-4 bottom-4 sm:right-6 sm:bottom-6">
           <a href="#results">
             <button
