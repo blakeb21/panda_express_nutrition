@@ -49,12 +49,7 @@ const Home: NextPage = () => {
           name="description"
           content="A quick and easy way to calculate Panda Express nutrition information and macros"
         />
-        <link rel="icon" href="/panda_logo_vector.svg" />
 
-        <meta
-          property="og:image"
-          content="https://panda-express-nutrition.vercel.app/panda_logo_vector.png"
-        />
         <meta property="og:image:width" content="1080" />
         <meta property="og:image:height" content="1080" />
         <meta
@@ -74,10 +69,7 @@ const Home: NextPage = () => {
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:creator" content="@BlakeTomasz" />
         <meta name="twitter:site" content="@BlakeTomasz" />
-        <meta
-          name="twitter:image"
-          content="https://panda-express-nutrition.vercel.app/panda_logo_vector.png"
-        />
+
         <meta name="twitter:image:width" content="1080" />
         <meta name="twitter:image:height" content="1080" />
         <meta
