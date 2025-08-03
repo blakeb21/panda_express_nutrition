@@ -1,15 +1,17 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Header from "~/components/header";
 import Footer from "~/components/footer";
 import ResultTable from "~/components/resultTable";
 import Table from "~/components/table";
 import Toast from "~/components/toast";
+import { useToast } from "~/hooks/useToast";
+import { useNutritionCalculator } from "~/hooks/useNutritionCalculator";
+import { SEO_CONFIG, ICON_SIZES, SR_TEXT } from "~/constants";
 
 import {
-  type FoodEntry,
   halfSides,
   sides,
   chicken,
@@ -21,76 +23,70 @@ import {
 import { usePostHog } from "posthog-js/react";
 
 const Home: NextPage = () => {
-  const [selectedItems, setSelectedItems] = useState<FoodEntry[]>([]);
-  const [halfSidesBool, setHalfSides] = useState<boolean>(false);
-  const [showToast, setShowToast] = useState(false);
-  const [toastText, setToastText] = useState("");
-
+  const [halfSidesBool] = useState<boolean>(false);
+  const { selectedItems, addItem, removeItem, resetItems } = useNutritionCalculator();
+  const { showToast, toastText, showToastMessage, hideToast } = useToast();
   const posthog = usePostHog();
 
-  function resetArray() {
-    setSelectedItems([]);
-  }
+  const handleResetArray = useCallback(() => {
+    resetItems();
+  }, [resetItems]);
 
-  function setToast(item: string) {
-    setToastText(item);
 
-    setShowToast(true);
-    setTimeout(() => {
-      setShowToast(false);
-    }, 3000);
-  }
+  const handleJumpToBottom = useCallback(() => {
+    posthog.capture("jump_to_bottom");
+  }, [posthog]);
 
   return (
     <>
       <Head>
-        <title>Panda Express Nutrition Calculator</title>
+        <title>{SEO_CONFIG.title}</title>
         <meta
           name="description"
-          content="A quick and easy way to calculate Panda Express nutrition information and macros"
+          content={SEO_CONFIG.description}
         />
 
-        <meta property="og:image:width" content="1080" />
-        <meta property="og:image:height" content="1080" />
+        <meta property="og:image:width" content={SEO_CONFIG.imageWidth} />
+        <meta property="og:image:height" content={SEO_CONFIG.imageHeight} />
         <meta
           property="og:url"
-          content="https://panda-express-nutrition.vercel.app"
+          content={SEO_CONFIG.url}
         />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Panda Express Nutrition Calculator"
+          content={SEO_CONFIG.title}
         />
         <meta
           property="og:description"
-          content="A quick and easy way to calculate Panda Express nutrition information and macros"
+          content={SEO_CONFIG.description}
         />
 
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:creator" content="@BlakeTomasz" />
-        <meta name="twitter:site" content="@BlakeTomasz" />
+        <meta name="twitter:creator" content={SEO_CONFIG.twitterHandle} />
+        <meta name="twitter:site" content={SEO_CONFIG.twitterHandle} />
 
         <meta name="twitter:image:width" content="1080" />
         <meta name="twitter:image:height" content="1080" />
         <meta
           name="twitter:url"
-          content="https://panda-express-nutrition.vercel.app"
+          content={SEO_CONFIG.url}
         />
         <meta name="twitter:type" content="website" />
         <meta
           name="twitter:title"
-          content="Panda Express Nutrition Calculator"
+          content={SEO_CONFIG.title}
         />
         <meta
           name="twitter:description"
-          content="A quick and easy way to calculate Panda Express nutrition information and macros"
+          content={SEO_CONFIG.description}
         />
         <meta
           name="google-site-verification"
-          content="q89S_Dej4noVDW2XJtcU6BMcK9_sc-d2ohAKLLmawss"
+          content={SEO_CONFIG.siteVerification}
         />
       </Head>
-      <Header buttonClick={resetArray} />
+      <Header buttonClick={handleResetArray} />
       <main className="relative flex flex-col bg-gradient-to-r from-[#9d0208] to-[#370617]">
         <h1 className="py-4 text-center text-xl font-bold text-white underline">
           Panda Express Nutrition Info
@@ -105,66 +101,57 @@ const Home: NextPage = () => {
           Selected&quot; button in the header.
         </p>
 
-        {/* <div className="flex-row flex" style={{"maxWidth": "65ch"}}>
-          <span className="mr-3 text-sm font-medium text-gray-900 dark:text-gray-300">Full Sides</span>
-          <label className="relative inline-flex items-center cursor-pointer">
-            <input type="checkbox" value={halfSidesBool} onClick={() => setHalfSides(!halfSidesBool)} className="sr-only peer" />
-            <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-            <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Half Sides</span>
-          </label>
-        </div> */}
-
         {halfSidesBool === false ? (
           <Table
             inputArray={sides}
-            setItems={setSelectedItems}
-            setToast={setToast}
+            setItems={addItem}
+            setToast={showToastMessage}
             headerText="Sides"
           />
         ) : (
           <Table
             inputArray={halfSides}
-            setItems={setSelectedItems}
-            setToast={setToast}
+            setItems={addItem}
+            setToast={showToastMessage}
             headerText="Sides"
           />
         )}
         <Table
           inputArray={chicken}
-          setItems={setSelectedItems}
-          setToast={setToast}
+          setItems={addItem}
+          setToast={showToastMessage}
           headerText="Chicken"
         />
         <Table
           inputArray={chickenBreast}
-          setItems={setSelectedItems}
-          setToast={setToast}
+          setItems={addItem}
+          setToast={showToastMessage}
           headerText="Chicken Breast"
         />
         <Table
           inputArray={beef}
-          setItems={setSelectedItems}
-          setToast={setToast}
+          setItems={addItem}
+          setToast={showToastMessage}
           headerText="Beef"
         />
         <Table
           inputArray={seafood}
-          setItems={setSelectedItems}
-          setToast={setToast}
+          setItems={addItem}
+          setToast={showToastMessage}
           headerText="Seafood"
         />
         <Table
           inputArray={appetizers}
-          setItems={setSelectedItems}
-          setToast={setToast}
+          setItems={addItem}
+          setToast={showToastMessage}
           headerText="Appetizers"
         />
 
-        <ResultTable setItems={setSelectedItems} inputArray={selectedItems} />
+        <ResultTable removeItem={removeItem} inputArray={selectedItems} />
 
         {showToast && (
           <div className="fixed left-[50%] bottom-[20px] translate-x-[-50%]">
-            <Toast itemName={toastText} setShowToast={setShowToast} />
+            <Toast itemName={toastText} setShowToast={hideToast} />
           </div>
         )}
 
@@ -185,15 +172,13 @@ const Home: NextPage = () => {
           <a href="#results">
             <button
               className="button hover:bg-800 h-14 w-14 rounded-full bg-gray-400 text-white"
-              onClick={() => {
-                posthog.capture("jump_to_bottom");
-              }}
+              onClick={handleJumpToBottom}
             >
               <Image
                 src="down-arrow-svgrepo-com.svg"
-                width={14}
-                height={14}
-                alt="Down arrow"
+                width={ICON_SIZES.large.width}
+                height={ICON_SIZES.large.height}
+                alt={SR_TEXT.downArrow}
                 className="mx-auto"
               />
             </button>

@@ -1,12 +1,33 @@
-export type FoodEntry = {
-    name: string, 
-    calories: number, 
-    protein: number, 
-    carbs: number, 
-    fat: number
+export interface FoodEntry {
+    readonly name: string;
+    readonly calories: number;
+    readonly protein: number;
+    readonly carbs: number;
+    readonly fat: number;
 }
 
-export const sides: FoodEntry[] = [
+/**
+ * Creates a half-portion version of a food entry
+ * @param entry - The original food entry
+ * @returns A new food entry with half the nutritional values
+ */
+export const createHalfPortion = (entry: FoodEntry): FoodEntry => ({
+    name: entry.name,
+    calories: entry.calories / 2,
+    protein: entry.protein / 2,
+    carbs: entry.carbs / 2,
+    fat: entry.fat / 2,
+} as const);
+
+/**
+ * Creates half-portion versions of an array of food entries
+ * @param entries - Array of original food entries
+ * @returns Array of food entries with half the nutritional values
+ */
+export const createHalfPortions = (entries: readonly FoodEntry[]): FoodEntry[] => 
+    entries.map(createHalfPortion);
+
+export const sides: readonly FoodEntry[] = [
     {name: "Chow Mein", calories: 510, protein: 13, carbs: 80, fat: 20},
     {name: "Fried Rice", calories: 520, protein: 11, carbs: 85, fat: 16},
     {name: "Brown Steamed Rice", calories: 420, protein: 9, carbs: 86, fat: 4},
@@ -15,16 +36,9 @@ export const sides: FoodEntry[] = [
     {name: "Chow Fun", calories: 410, protein: 9, carbs: 73, fat: 9},
 ]
 
-export const halfSides: FoodEntry[] = [
-    {name: "Chow Mein", calories: 510/2, protein: 13/2, carbs: 80/2, fat: 20/2},
-    {name: "Fried Rice", calories: 520/2, protein: 11/2, carbs: 85/2, fat: 16/2},
-    {name: "Brown Steamed Rice", calories: 420/2, protein: 9/2, carbs: 86/2, fat: 4/2},
-    {name: "White Steamed Rice", calories: 380/2, protein: 7/2, carbs: 87/2, fat: 0},
-    {name: "Super Greens", calories: 90/2, protein: 6/2, carbs: 10/2, fat: 3/2},
-    {name: "Chow Fun", calories: 410/2, protein: 9/2, carbs: 73/2, fat: 9/2},
-]
+export const halfSides: readonly FoodEntry[] = createHalfPortions(sides);
 
-export const chicken: FoodEntry[] = [
+export const chicken: readonly FoodEntry[] = [
     {name: "Black Pepper Chicken", calories: 280, protein: 13, carbs: 15, fat: 19},
     {name: "Kung Pao Chicken", calories: 290, protein: 16, carbs: 14, fat: 19},
     {name: "Grilled Teriyaki Chicken", calories: 275, protein: 33, carbs: 14, fat: 10},
@@ -36,27 +50,27 @@ export const chicken: FoodEntry[] = [
     {name: "Potato Chicken", calories: 190, protein: 8, carbs: 18, fat: 10},
 ]
 
-export const chickenBreast: FoodEntry[] = [
+export const chickenBreast: readonly FoodEntry[] = [
     {name: "Honey Sesame Chicken Breast", calories: 340, protein: 16, carbs: 35, fat: 15},
     {name: "String Bean Chicken Breast", calories: 210, protein: 12, carbs: 13, fat: 12},
     {name: "Sweetfire Chicken Breast", calories: 360, protein: 15, carbs: 40, fat: 15},
     {name: "Sweet & Sour Chicken Breast", calories: 300, protein: 10, carbs: 40, fat: 10},
 ]
 
-export const beef: FoodEntry[] = [
+export const beef: readonly FoodEntry[] = [
     {name: "Beijing Beef", calories: 480, protein: 14, carbs: 46, fat: 27},
     {name: "Black Pepper Angus Steak", calories: 210, protein: 19, carbs: 13, fat: 10},
     {name: "Broccoli Beef", calories: 150, protein: 9, carbs: 13, fat: 7},
 ]
 
-export const seafood: FoodEntry[] = [
+export const seafood: readonly FoodEntry[] = [
     {name: "Honey Walnut Shrimp", calories: 360, protein: 11, carbs: 27, fat: 24},
     {name: "Wok-Fried Shrimp", calories: 190, protein: 17, carbs: 19, fat: 5},
     {name: "Golden Treasure Shrimp", calories: 360, protein: 14, carbs: 35, fat: 18},
     {name: "Steamed Ginger Fish", calories: 200, protein: 15, carbs: 8, fat: 12},
 ]
 
-export const appetizers: FoodEntry[] = [
+export const appetizers: readonly FoodEntry[] = [
     {name: "Chicken Egg Roll (1 Roll)", calories: 200, protein: 6, carbs: 20, fat: 10},
     {name: "Chicken Potstickers (3 Pcs)", calories: 160, protein: 6, carbs: 20, fat: 6},
     {name: "Cream Cheese Rangoon (3 Pcs)", calories: 190, protein: 5, carbs: 24, fat: 8},
