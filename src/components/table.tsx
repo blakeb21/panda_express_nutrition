@@ -103,11 +103,20 @@ const Table: FC<TableProps> = memo(({
                 <td className="flex p-2 md:px-4 md:py-4">
                   <button
                     onClick={() => buttonClicked(item)}
-                    className="mx-auto font-medium text-green-600 hover:underline"
+                    className="
+                      mx-auto min-h-[44px] min-w-[44px] p-2
+                      font-medium text-green-600 hover:text-green-700 
+                      hover:bg-green-50 active:bg-green-100
+                      rounded-lg transition-all duration-200 ease-in-out
+                      transform hover:scale-105 active:scale-95
+                      focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50
+                      flex items-center justify-center
+                    "
+                    aria-label={`Add ${item.name} to your selection`}
                   >
                     <svg
                       aria-hidden="true"
-                      className="h-8 w-8"
+                      className="h-6 w-6"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"

@@ -28,7 +28,7 @@ const Header: FC<HeaderProps> = ({ buttonClick }: HeaderProps) => {
           >
             <button
               className="rounded bg-red-700 p-4 pt-2 text-white"
-              onClick={(e) => {
+              onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                 posthog.capture("reset_button_clicked");
                 buttonClick(e);
               }}

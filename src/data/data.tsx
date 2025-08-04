@@ -8,6 +8,19 @@ export interface FoodEntry {
 }
 
 /**
+ * Extended interface for tracking quantity of food entries
+ * Maintains base nutrition values for accurate calculations
+ */
+export interface QuantifiedFoodEntry extends FoodEntry {
+    readonly quantity: number;
+    readonly baseCalories: number;
+    readonly baseProtein: number;
+    readonly baseCarbs: number;
+    readonly baseFat: number;
+    readonly key: string; // Unique identifier for grouping (name + portion type)
+}
+
+/**
  * Creates a half-portion version of a food entry
  * @param entry - The original food entry
  * @returns A new food entry with half the nutritional values
@@ -28,6 +41,43 @@ export const createHalfPortion = (entry: FoodEntry): FoodEntry => ({
  */
 export const createHalfPortions = (entries: readonly FoodEntry[]): FoodEntry[] => 
     entries.map(createHalfPortion);
+
+/**
+ * Creates a unique key for grouping food entries
+ * Combines name and portion type for accurate deduplication
+ */
+export const createFoodEntryKey = (entry: FoodEntry): string => {
+    const portionSuffix = entry.isHalfPortion ? '_half' : '_full';
+    return `${entry.name}${portionSuffix}`;
+};
+
+/**
+ * Converts a regular FoodEntry to a QuantifiedFoodEntry with quantity 1
+ * @param entry - The original food entry
+ * @returns A quantified food entry with quantity 1
+ */
+export const createQuantifiedEntry = (entry: FoodEntry): QuantifiedFoodEntry => ({
+    ...entry,
+    quantity: 1,
+    baseCalories: entry.calories,
+    baseProtein: entry.protein,
+    baseCarbs: entry.carbs,
+    baseFat: entry.fat,
+    key: createFoodEntryKey(entry),
+});
+
+/**
+ * Updates the displayed nutrition values based on quantity
+ * @param entry - The quantified food entry
+ * @returns Updated entry with nutrition values multiplied by quantity
+ */
+export const updateNutritionByQuantity = (entry: QuantifiedFoodEntry): QuantifiedFoodEntry => ({
+    ...entry,
+    calories: entry.baseCalories * entry.quantity,
+    protein: entry.baseProtein * entry.quantity,
+    carbs: entry.baseCarbs * entry.quantity,
+    fat: entry.baseFat * entry.quantity,
+});
 
 export const sides: readonly FoodEntry[] = [
     {name: "Chow Mein", calories: 510, protein: 13, carbs: 80, fat: 20},
