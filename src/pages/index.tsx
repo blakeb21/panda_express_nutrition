@@ -7,6 +7,7 @@ import Footer from "~/components/footer";
 import ResultTable from "~/components/resultTable";
 import Table from "~/components/table";
 import Toast from "~/components/toast";
+import Toggle from "~/components/toggle";
 import { useToast } from "~/hooks/useToast";
 import { useNutritionCalculator } from "~/hooks/useNutritionCalculator";
 import { SEO_CONFIG, ICON_SIZES, SR_TEXT } from "~/constants";
@@ -23,7 +24,7 @@ import {
 import { usePostHog } from "posthog-js/react";
 
 const Home: NextPage = () => {
-  const [halfSidesBool] = useState<boolean>(false);
+  const [halfSidesBool, setHalfSidesBool] = useState<boolean>(false);
   const { selectedItems, addItem, removeItem, resetItems } = useNutritionCalculator();
   const { showToast, toastText, showToastMessage, hideToast } = useToast();
   const posthog = usePostHog();
@@ -32,6 +33,10 @@ const Home: NextPage = () => {
     resetItems();
   }, [resetItems]);
 
+  const handleToggleHalfSides = useCallback((checked: boolean) => {
+    setHalfSidesBool(checked);
+    posthog.capture("toggle_half_sides", { half_sides: checked });
+  }, [posthog]);
 
   const handleJumpToBottom = useCallback(() => {
     posthog.capture("jump_to_bottom");
@@ -100,6 +105,17 @@ const Home: NextPage = () => {
           You can reset the selected items but click on the &quot;Reset
           Selected&quot; button in the header.
         </p>
+
+        <div className="mx-4 mb-4 flex justify-center md:mx-auto">
+          <Toggle
+            checked={halfSidesBool}
+            onChange={handleToggleHalfSides}
+            label="Half Sides"
+            description="Toggle to show half portion sizes for sides"
+            size="md"
+            className="bg-black/20 backdrop-blur-sm rounded-lg p-4 border border-white/20"
+          />
+        </div>
 
         {halfSidesBool === false ? (
           <Table

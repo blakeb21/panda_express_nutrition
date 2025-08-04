@@ -4,6 +4,7 @@ export interface FoodEntry {
     readonly protein: number;
     readonly carbs: number;
     readonly fat: number;
+    readonly isHalfPortion?: boolean;
 }
 
 /**
@@ -17,6 +18,7 @@ export const createHalfPortion = (entry: FoodEntry): FoodEntry => ({
     protein: entry.protein / 2,
     carbs: entry.carbs / 2,
     fat: entry.fat / 2,
+    isHalfPortion: true,
 } as const);
 
 /**

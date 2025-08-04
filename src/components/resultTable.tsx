@@ -80,7 +80,14 @@ const ResultTable: FC<ResultTableProps> = memo(({ inputArray, removeItem }) => {
                   scope="row"
                   className="max-w-[170px] p-1 py-2 sm:w-fit md:px-4 md:py-4"
                 >
-                  {item.name}
+                  <div className="flex flex-col">
+                    <span>{item.name}</span>
+                    {item.isHalfPortion && (
+                      <span className="text-xs text-orange-600 font-medium">
+                        Half Portion
+                      </span>
+                    )}
+                  </div>
                 </td>
                 <td className="p-2 text-center md:px-4 md:py-4">
                   {item.calories}
