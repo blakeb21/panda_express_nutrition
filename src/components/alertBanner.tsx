@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePostHog } from "posthog-js/react";
+import { Megaphone } from 'lucide-react'
 
 interface AlertBannerProps {
   className?: string;
@@ -27,21 +28,7 @@ const AlertBanner: React.FC<AlertBannerProps> = ({ className = "" }) => {
         <div className="flex items-center justify-between flex-wrap">
           <div className="w-0 flex-1 flex items-center">
             <span className="flex p-2 rounded-lg bg-yellow-600">
-              <svg
-                className="h-6 w-6 text-white"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c.0.000 2.44 1.82 4.168 2M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6"
-                />
-              </svg>
+              <Megaphone className="text-white" />
             </span>
             <p className="ml-3 font-medium text-gray-900 truncate">
               <span className="md:hidden">
