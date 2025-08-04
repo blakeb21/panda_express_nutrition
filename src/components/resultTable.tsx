@@ -1,27 +1,23 @@
-import { type Dispatch, type SetStateAction, type FC } from "react";
+import { type FC, useMemo, useCallback, memo } from "react";
 import { type FoodEntry } from "~/data/data";
 
-export interface TableProps {
-  inputArray: FoodEntry[];
-  setItems: Dispatch<SetStateAction<FoodEntry[]>>;
+export interface ResultTableProps {
+  readonly inputArray: readonly FoodEntry[];
+  readonly removeItem: (index: number) => void;
 }
 
-const ResultTable: FC<TableProps> = ({ inputArray, setItems }) => {
-  function buttonClicked(item: number) {
-    setItems((prevActions) =>
-      // Filter out the item with the matching index
-      prevActions.filter((value, idx) => idx !== item)
-    );
-    return undefined;
-  }
+const ResultTable: FC<ResultTableProps> = memo(({ inputArray, removeItem }) => {
+  const buttonClicked = useCallback((index: number) => {
+    removeItem(index);
+  }, [removeItem]);
 
-  const results: FoodEntry = {
+  const results: FoodEntry = useMemo(() => ({
     name: "Sum",
     calories: inputArray.reduce((partialSum, a) => partialSum + a.calories, 0),
     protein: inputArray.reduce((partialSum, a) => partialSum + a.protein, 0),
     carbs: inputArray.reduce((partialSum, a) => partialSum + a.carbs, 0),
     fat: inputArray.reduce((partialSum, a) => partialSum + a.fat, 0),
-  };
+  }), [inputArray]);
 
   return (
     <>
@@ -39,7 +35,7 @@ const ResultTable: FC<TableProps> = ({ inputArray, setItems }) => {
                 Calories
               </th>
               <th scope="col" className="max-w-min px-4 py-3 text-center">
-                Proten
+                Protein
               </th>
               <th scope="col" className="max-w-min px-4 py-3 text-center">
                 Carbs
@@ -84,7 +80,14 @@ const ResultTable: FC<TableProps> = ({ inputArray, setItems }) => {
                   scope="row"
                   className="max-w-[170px] p-1 py-2 sm:w-fit md:px-4 md:py-4"
                 >
-                  {item.name}
+                  <div className="flex flex-col">
+                    <span>{item.name}</span>
+                    {item.isHalfPortion && (
+                      <span className="text-xs text-orange-600 font-medium">
+                        Half Portion
+                      </span>
+                    )}
+                  </div>
                 </td>
                 <td className="p-2 text-center md:px-4 md:py-4">
                   {item.calories}
@@ -148,6 +151,8 @@ const ResultTable: FC<TableProps> = ({ inputArray, setItems }) => {
       </div>
     </>
   );
-};
+});
+
+ResultTable.displayName = 'ResultTable';
 
 export default ResultTable;

@@ -6,8 +6,8 @@ import { z } from "zod";
  */
 const server = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]),
-  NEXT_PUBLIC_POSTHOG_KEY: z.enum(["development", "test", "production"]),
-  NEXT_PUBLIC_POSTHOG_HOST: z.enum(["development", "test", "production"]),
+  NEXT_PUBLIC_POSTHOG_KEY: z.string().optional(),
+  NEXT_PUBLIC_POSTHOG_HOST: z.string().optional(),
 });
 
 /**

@@ -1,26 +1,31 @@
-import { type Dispatch, type SetStateAction, type FC } from "react";
+import { type Dispatch, type SetStateAction, type FC, memo, useCallback } from "react";
 import { type FoodEntry } from "~/data/data";
 
 export interface TableProps {
-  inputArray: FoodEntry[];
-  setItems: Dispatch<SetStateAction<FoodEntry[]>>;
+  inputArray: readonly FoodEntry[];
+  setItems: ((item: FoodEntry) => void) | Dispatch<SetStateAction<FoodEntry[]>>;
   setToast: (item: string) => void;
   headerText: string;
 }
 
-const Table: FC<TableProps> = ({
+const Table: FC<TableProps> = memo(({
   inputArray,
   setItems,
   setToast,
   headerText,
 }) => {
-  function buttonClicked(item: FoodEntry) {
-    setItems((prevItems) => {
-      return [...prevItems, item];
-    });
+  const buttonClicked = useCallback((item: FoodEntry) => {
+    if (typeof setItems === 'function' && setItems.length === 1) {
+      // New API: function that accepts a single FoodEntry
+      (setItems as (item: FoodEntry) => void)(item);
+    } else {
+      // Legacy API: setState function
+      (setItems as Dispatch<SetStateAction<FoodEntry[]>>)((prevItems: FoodEntry[]) => {
+        return [...prevItems, item];
+      });
+    }
     setToast(item.name);
-    return undefined;
-  }
+  }, [setItems, setToast]);
 
   return (
     <>
@@ -38,7 +43,7 @@ const Table: FC<TableProps> = ({
                 Calories
               </th>
               <th scope="col" className="max-w-min px-4 py-3 text-center">
-                Proten
+                Protein
               </th>
               <th scope="col" className="max-w-min px-4 py-3 text-center">
                 Carbs
@@ -125,6 +130,8 @@ const Table: FC<TableProps> = ({
       </div>
     </>
   );
-};
+});
+
+Table.displayName = 'Table';
 
 export default Table;
