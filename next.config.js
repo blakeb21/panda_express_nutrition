@@ -26,6 +26,48 @@ module.exports = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  
+  // SEO and Performance optimizations
+  poweredByHeader: false, // Remove X-Powered-By header
+  generateEtags: true, // Generate ETags for better caching
+  compress: true, // Enable gzip compression
+  
+  // Image optimization for better Core Web Vitals
+  images: {
+    formats: ['image/webp', 'image/avif'],
+    minimumCacheTTL: 86400, // 24 hours
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  },
+  
+  // Security headers for better SEO ranking
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff'
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY'
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'origin-when-cross-origin'
+          },
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on'
+          }
+        ]
+      }
+    ]
+  },
+  
   async rewrites() {
     return [
       {

@@ -1,4 +1,68 @@
-# Allow all crawlers
+# Panda Express Nutrition Calculator - Robots.txt
+# Free macro calculator and nutrition information for Panda Express menu items
+# Including Orange Chicken, Chow Mein, Beijing Beef, Honey Walnut Shrimp
+
 User-agent: *
 Allow: /
+Allow: /feedback
+
+# Specifically allow important crawlers for better SEO
+User-agent: Googlebot
+Allow: /
+Allow: /feedback
+Allow: /*.css$
+Allow: /*.js$
+
+User-agent: Bingbot
+Allow: /
+Allow: /feedback
+
+User-agent: Slurp
+Allow: /
+Allow: /feedback
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: facebookexternalhit/1.1
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Block unnecessary paths to focus crawl budget
+Disallow: /api/
+Disallow: /_next/static/
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /*.log$
+Disallow: /convert-og-image.html
+
+# Allow important static assets
+Allow: /favicon.ico
+Allow: /og-image.png
+Allow: /og-image.svg
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.svg$
+
+# Crawl-delay for being respectful (shorter for major bots)
+User-agent: Googlebot
+Crawl-delay: 0.5
+
+User-agent: Bingbot
+Crawl-delay: 1
+
+User-agent: *
+Crawl-delay: 1
+
+# Sitemap location
 Sitemap: https://panda-express-nutrition.vercel.app/sitemap.xml
+
+# Host directive (helps with canonicalization)
+Host: https://panda-express-nutrition.vercel.app
