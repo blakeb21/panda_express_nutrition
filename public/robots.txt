@@ -62,6 +62,3 @@ Crawl-delay: 1
 
 # Sitemap location
 Sitemap: https://panda-express-calculator.vercel.app/sitemap.xml
-
-# Host directive (helps with canonicalization)
-Host: https://panda-express-calculator.vercel.app

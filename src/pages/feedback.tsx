@@ -146,6 +146,7 @@ const FeedbackPage: NextPage = () => {
                 <li>• Your email is only used to respond to your feedback</li>
                 <li>• We don&apos;t share your information with third parties</li>
                 <li>• For urgent issues, please include &quot;URGENT&quot; in your message</li>
+                <li>• Analytics events are anonymized for product improvement</li>
               </ul>
             </div>
           </div>

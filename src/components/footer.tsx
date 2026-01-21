@@ -18,6 +18,24 @@ export default function Footer() {
         </span>
         <div className="flex items-center">
             <span className="hidden md:inline text-slate-500 mx-2">|</span>
+            <Link href="/privacy">
+                <button
+                    className="text-slate-400 hover:text-white focus:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-opacity-50 rounded px-2 py-1"
+                    aria-label="Privacy notice"
+                >
+                    Privacy
+                </button>
+            </Link>
+            <span className="hidden md:inline text-slate-500 mx-2">|</span>
+            <Link href="/contact">
+                <button
+                    className="text-slate-400 hover:text-white focus:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-opacity-50 rounded px-2 py-1"
+                    aria-label="Contact us"
+                >
+                    Contact
+                </button>
+            </Link>
+            <span className="hidden md:inline text-slate-500 mx-2">|</span>
             <Link href="/feedback">
                 <button 
                     onClick={handleFooterFeedbackClick}
