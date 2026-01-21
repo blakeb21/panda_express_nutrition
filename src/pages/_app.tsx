@@ -4,7 +4,8 @@ import "~/styles/globals.css";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import * as gtag from "../lib/gtag";
-import posthog, { type PostHog } from "posthog-js";
+import posthog from "posthog-js";
+import { type PostHogInterface } from "posthog-js";
 import { PostHogProvider } from "posthog-js/react";
 
 if (typeof window !== "undefined" && process.env.NEXT_PUBLIC_POSTHOG_KEY) {
@@ -13,7 +14,7 @@ if (typeof window !== "undefined" && process.env.NEXT_PUBLIC_POSTHOG_KEY) {
     api_host: "/ingest",
     ui_host: "https://us.posthog.com",
     person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
-    loaded: (posthog: PostHog) => {
+    loaded: (posthog: PostHogInterface) => {
       if (process.env.NODE_ENV === "development") posthog.debug(); // debug mode in development
     },
   });
