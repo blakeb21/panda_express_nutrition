@@ -790,7 +790,7 @@ const Home: NextPage = () => {
               onClick={handleJumpToBottom}
             >
               <Image
-                src="down-arrow-svgrepo-com.svg"
+                src="/down-arrow-svgrepo-com.svg"
                 width={ICON_SIZES.large.width}
                 height={ICON_SIZES.large.height}
                 alt={SR_TEXT.downArrow}
