@@ -33,7 +33,6 @@ const FeedbackPage: NextPage = () => {
           name="description"
           content="Share your feedback about the Panda Express Nutrition Info app. Help us improve your experience with our nutrition calculator."
         />
-        <meta name="robots" content="noindex, nofollow" />
       </Head>
       
       <div className="min-h-screen bg-gradient-to-br from-[#9d0208] via-[#370617] to-[#9d0208]">

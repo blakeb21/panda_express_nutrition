@@ -32,9 +32,9 @@ export const SEO_CONFIG = {
     "Calculate Panda Express nutrition information, calories, protein, carbs and fat for your meal. Free macro calculator with all menu items including Orange Chicken, Chow Mein, Fried Rice and more.",
   keywords:
     "panda express nutrition, panda express calories, panda express macro calculator, panda express nutrition facts, panda express menu nutrition, panda express protein content, panda express carbs, orange chicken calories, chow mein nutrition, fried rice calories, beijing beef nutrition, honey walnut shrimp calories, super greens nutrition, teriyaki chicken calories, kung pao chicken nutrition, broccoli beef calories, macro calculator, diet tracking, meal planning, calorie counter, chinese food nutrition, fast food nutrition, healthy eating, weight loss, bodybuilding nutrition, macronutrient tracking, carb counting, protein tracking, fat content",
-  url: "https://panda-express-nutrition.vercel.app",
+  url: "https://panda-express-calculator.vercel.app",
   siteName: "Panda Express Nutrition Calculator",
-  imageUrl: "https://panda-express-nutrition.vercel.app/og-image.png",
+  imageUrl: "https://panda-express-calculator.vercel.app/og-image.png",
   imageWidth: "1200",
   imageHeight: "630",
   siteVerification: "q89S_Dej4noVDW2XJtcU6BMcK9_sc-d2ohAKLLmawss",

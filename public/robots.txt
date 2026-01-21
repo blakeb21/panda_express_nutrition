@@ -35,7 +35,6 @@ Allow: /
 
 # Block unnecessary paths to focus crawl budget
 Disallow: /api/
-Disallow: /_next/static/
 Disallow: /node_modules/
 Disallow: /.git/
 Disallow: /*.log$
@@ -62,7 +61,7 @@ User-agent: *
 Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://panda-express-nutrition.vercel.app/sitemap.xml
+Sitemap: https://panda-express-calculator.vercel.app/sitemap.xml
 
 # Host directive (helps with canonicalization)
-Host: https://panda-express-nutrition.vercel.app
+Host: https://panda-express-calculator.vercel.app
