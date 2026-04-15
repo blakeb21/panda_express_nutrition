@@ -33,6 +33,12 @@ const ContactPage: NextPage = () => {
           name="description"
           content="Contact the Panda Express Nutrition Calculator team."
         />
+        <link rel="canonical" href="https://panda-express-calculator.vercel.app/contact" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Contact - Panda Express Nutrition Calculator" />
+        <meta property="og:description" content="Contact the Panda Express Nutrition Calculator team." />
+        <meta property="og:url" content="https://panda-express-calculator.vercel.app/contact" />
+        <meta property="og:image" content="https://panda-express-calculator.vercel.app/api/og" />
       </Head>
       <div className="min-h-screen bg-gradient-to-br from-[#9d0208] via-[#370617] to-[#9d0208]">
         <header className="bg-black/20 backdrop-blur-sm border-b border-white/10">

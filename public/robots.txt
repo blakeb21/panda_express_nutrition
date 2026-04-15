@@ -50,10 +50,7 @@ Allow: /*.png$
 Allow: /*.jpg$
 Allow: /*.svg$
 
-# Crawl-delay for being respectful (shorter for major bots)
-User-agent: Googlebot
-Crawl-delay: 0.5
-
+# Crawl-delay for being respectful
 User-agent: Bingbot
 Crawl-delay: 1
 

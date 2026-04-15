@@ -28,11 +28,17 @@ const FeedbackPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Feedback - Panda Express Nutrition Info</title>
+        <title>Feedback - Panda Express Nutrition Calculator</title>
         <meta
           name="description"
-          content="Share your feedback about the Panda Express Nutrition Info app. Help us improve your experience with our nutrition calculator."
+          content="Share your feedback about the Panda Express Nutrition Calculator. Help us improve your experience."
         />
+        <link rel="canonical" href="https://panda-express-calculator.vercel.app/feedback" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Feedback - Panda Express Nutrition Calculator" />
+        <meta property="og:description" content="Share your feedback about the Panda Express Nutrition Calculator." />
+        <meta property="og:url" content="https://panda-express-calculator.vercel.app/feedback" />
+        <meta property="og:image" content="https://panda-express-calculator.vercel.app/api/og" />
       </Head>
       
       <div className="min-h-screen bg-gradient-to-br from-[#9d0208] via-[#370617] to-[#9d0208]">

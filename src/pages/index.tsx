@@ -194,25 +194,6 @@ const Home: NextPage = () => {
         <meta name="msapplication-TileColor" content="#9d0208" />
         <meta name="format-detection" content="telephone=no" />
 
-        {/* Enhanced Food & Nutrition Meta Tags */}
-        <meta name="food-type" content="Chinese American Fast Food" />
-        <meta
-          name="nutrition-focus"
-          content="Calories, Protein, Carbohydrates, Fat"
-        />
-        <meta
-          name="diet-categories"
-          content="Macro Tracking, Calorie Counting, Weight Loss, Bodybuilding"
-        />
-        <meta
-          name="popular-items"
-          content="Orange Chicken, Chow Mein, Fried Rice, Beijing Beef, Honey Walnut Shrimp"
-        />
-        <meta
-          name="application-use"
-          content="Meal Planning, Diet Tracking, Nutrition Analysis"
-        />
-
         {/* Geo-targeting and Language Meta Tags */}
         <meta name="geo.region" content="US" />
         <meta name="geo.placename" content="United States" />
@@ -224,12 +205,6 @@ const Home: NextPage = () => {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <meta name="apple-mobile-web-app-title" content="Panda Nutrition" />
-
-        {/* Structured Meta for Rich Snippets */}
-        <meta name="rating" content="5" />
-        <meta name="review-count" content="1000+" />
-        <meta name="price" content="Free" />
-        <meta name="availability" content="Available" />
 
         {/* Structured Data - Organization */}
         <script
@@ -262,48 +237,6 @@ const Home: NextPage = () => {
               softwareVersion: "1.0",
               releaseNotes:
                 "Free Panda Express nutrition calculator and macro tracker",
-            }),
-          }}
-        />
-
-        {/* Structured Data - Nutrition Information */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Dataset",
-              name: "Panda Express Menu Nutrition Information",
-              description:
-                "Comprehensive nutrition data for all Panda Express menu items including calories, protein, carbohydrates, and fat content",
-              url: SEO_CONFIG.url,
-              keywords: [
-                "panda express",
-                "nutrition",
-                "calories",
-                "protein",
-                "carbs",
-                "fat",
-                "macro calculator",
-              ],
-              creator: {
-                "@type": "Person",
-                name: SEO_CONFIG.author,
-              },
-              publisher: {
-                "@type": "Organization",
-                name: "Panda Express Nutrition Calculator",
-              },
-              distribution: {
-                "@type": "DataDownload",
-                contentUrl: SEO_CONFIG.url,
-                encodingFormat: "text/html",
-              },
-              temporalCoverage: "2024",
-              spatialCoverage: {
-                "@type": "Place",
-                name: "United States",
-              },
             }),
           }}
         />
@@ -363,127 +296,6 @@ const Home: NextPage = () => {
                     "@type": "Answer",
                     text: "The highest protein items are Teriyaki Chicken and Asian Chicken with 41g protein each, followed by Grilled Teriyaki Chicken and Grilled Asian Chicken with 33g protein each.",
                   },
-                },
-              ],
-            }),
-          }}
-        />
-
-        {/* Structured Data - Menu Items Collection */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "ItemList",
-              name: "Panda Express Menu Nutrition Information",
-              description:
-                "Complete nutrition facts for all Panda Express menu items",
-              itemListElement: [
-                {
-                  "@type": "Recipe",
-                  position: 1,
-                  name: "Orange Chicken",
-                  description:
-                    "Panda Express signature Orange Chicken with sweet and tangy orange sauce",
-                  nutrition: {
-                    "@type": "NutritionInformation",
-                    calories: "490 calories",
-                    proteinContent: "25g",
-                    carbohydrateContent: "51g",
-                    fatContent: "23g",
-                  },
-                  recipeCategory: "Chinese American",
-                  recipeCuisine: "Asian",
-                },
-                {
-                  "@type": "Recipe",
-                  position: 2,
-                  name: "Chow Mein",
-                  description:
-                    "Stir-fried noodles with vegetables and seasonings",
-                  nutrition: {
-                    "@type": "NutritionInformation",
-                    calories: "510 calories",
-                    proteinContent: "13g",
-                    carbohydrateContent: "80g",
-                    fatContent: "20g",
-                  },
-                  recipeCategory: "Chinese American",
-                  recipeCuisine: "Asian",
-                },
-                {
-                  "@type": "Recipe",
-                  position: 3,
-                  name: "Fried Rice",
-                  description:
-                    "Wok-fried rice with egg, peas, carrots and green onions",
-                  nutrition: {
-                    "@type": "NutritionInformation",
-                    calories: "520 calories",
-                    proteinContent: "11g",
-                    carbohydrateContent: "85g",
-                    fatContent: "16g",
-                  },
-                  recipeCategory: "Chinese American",
-                  recipeCuisine: "Asian",
-                },
-                {
-                  "@type": "Recipe",
-                  position: 4,
-                  name: "Beijing Beef",
-                  description:
-                    "Crispy beef with bell peppers and onions in sweet and tangy sauce",
-                  nutrition: {
-                    "@type": "NutritionInformation",
-                    calories: "480 calories",
-                    proteinContent: "14g",
-                    carbohydrateContent: "46g",
-                    fatContent: "27g",
-                  },
-                  recipeCategory: "Chinese American",
-                  recipeCuisine: "Asian",
-                },
-                {
-                  "@type": "Recipe",
-                  position: 5,
-                  name: "Honey Walnut Shrimp",
-                  description:
-                    "Crispy shrimp with candied walnuts and creamy sauce",
-                  nutrition: {
-                    "@type": "NutritionInformation",
-                    calories: "360 calories",
-                    proteinContent: "11g",
-                    carbohydrateContent: "27g",
-                    fatContent: "24g",
-                  },
-                  recipeCategory: "Chinese American",
-                  recipeCuisine: "Asian",
-                },
-              ],
-            }),
-          }}
-        />
-
-        {/* Structured Data - Breadcrumbs */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "BreadcrumbList",
-              itemListElement: [
-                {
-                  "@type": "ListItem",
-                  position: 1,
-                  name: "Home",
-                  item: SEO_CONFIG.url,
-                },
-                {
-                  "@type": "ListItem",
-                  position: 2,
-                  name: "Panda Express Nutrition Calculator",
-                  item: SEO_CONFIG.url,
                 },
               ],
             }),
@@ -556,17 +368,6 @@ const Home: NextPage = () => {
             items including Orange Chicken, Chow Mein, Beijing Beef, and Honey
             Walnut Shrimp
           </p>
-          <div className="mt-4 px-4 text-xs text-white/70">
-            <span className="mx-1 inline-block">
-              🔥 Most searched: Orange Chicken calories
-            </span>
-            <span className="mx-1 inline-block">
-              💪 Highest protein: Teriyaki Chicken
-            </span>
-            <span className="mx-1 inline-block">
-              🥗 Lowest calorie: Super Greens
-            </span>
-          </div>
         </header>
 
         <section

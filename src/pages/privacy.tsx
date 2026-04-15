@@ -11,6 +11,12 @@ const PrivacyPage: NextPage = () => {
           name="description"
           content="Privacy information for the Panda Express Nutrition Calculator."
         />
+        <link rel="canonical" href="https://panda-express-calculator.vercel.app/privacy" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Privacy - Panda Express Nutrition Calculator" />
+        <meta property="og:description" content="Privacy information for the Panda Express Nutrition Calculator." />
+        <meta property="og:url" content="https://panda-express-calculator.vercel.app/privacy" />
+        <meta property="og:image" content="https://panda-express-calculator.vercel.app/api/og" />
       </Head>
       <div className="min-h-screen bg-gradient-to-br from-[#9d0208] via-[#370617] to-[#9d0208]">
         <header className="bg-black/20 backdrop-blur-sm border-b border-white/10">

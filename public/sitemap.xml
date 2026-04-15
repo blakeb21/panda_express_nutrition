@@ -1,34 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://panda-express-calculator.vercel.app</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-04-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://panda-express-calculator.vercel.app/og-image.png</image:loc>
+      <image:loc>https://panda-express-calculator.vercel.app/api/og</image:loc>
       <image:title>Panda Express Nutrition Calculator - Calculate Calories and Macros</image:title>
       <image:caption>Free Panda Express nutrition calculator and macro tracker for all menu items including Orange Chicken, Chow Mein, Beijing Beef</image:caption>
-      <image:license>https://panda-express-calculator.vercel.app</image:license>
     </image:image>
   </url>
   <url>
     <loc>https://panda-express-calculator.vercel.app/feedback</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://panda-express-calculator.vercel.app/privacy</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://panda-express-calculator.vercel.app/contact</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
