@@ -34,11 +34,18 @@
     "tailwindcss": "^3.4.19",
     "typescript": "^5.9.3"
   },
-  "overrides": {
-    "glob": "^10.5.0",
-    "js-yaml": "^4.1.1"
-  },
   "ct3aMetadata": {
     "initVersion": "7.5.6"
+  },
+  "overrides": {
+    "flatted": "3.4.2",
+    "ajv": "6.15.0",
+    "js-yaml": "4.1.1",
+    "yaml": "2.9.0",
+    "postcss": "8.5.15",
+    "picomatch": "2.3.2",
+    "glob": "10.5.0",
+    "minimatch": "3.1.5",
+    "brace-expansion": "1.1.14"
   }
 }
